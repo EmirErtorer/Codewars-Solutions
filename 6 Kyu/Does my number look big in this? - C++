@@ -1,0 +1,15 @@
+#include <string>
+#include <math.h>
+using namespace std;
+
+bool narcissistic( int value ){
+  //Code away
+  int narsist = 0; string answer = to_string(value); int power = answer.length();
+  
+  for(char ch : answer)
+    narsist += pow(int(ch - '0'), power);
+  
+  if(narsist == value) return true;
+  else return false;
+  
+}
