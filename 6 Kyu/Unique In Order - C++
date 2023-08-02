@@ -1,0 +1,24 @@
+#include <string>
+#include <vector>
+#include <algorithm> 
+using namespace std;
+
+template <typename T> vector<T> uniqueInOrder(const vector<T>& iterable){
+  vector<T> result;
+  for(unsigned long i = 0; i < iterable.size(); i++){
+    if(iterable[i] != iterable[i+1] || i == iterable.size() - 1)
+      result.push_back(iterable[i]);
+  }
+  return result;
+}
+vector<char> uniqueInOrder(const string& iterable){
+  vector<char> result = {};
+  if(iterable.size() == 0) return result;
+ 
+  for(unsigned long i = 0; i < iterable.size(); i++){
+    if(iterable[i] != iterable[i+1] || i == iterable.size() - 1)
+      result.push_back(iterable[i]);
+  }
+  return result;
+  
+}
