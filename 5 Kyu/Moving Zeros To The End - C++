@@ -1,0 +1,14 @@
+#include <vector>
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int> move_zeroes(const vector<int>& input) {
+  vector<int> result = input; unsigned long count1 = count(result.begin(), result.end(), 0); 
+  
+  result.erase(remove(result.begin(), result.end(), 0), result.end());
+
+  for(unsigned long i = 0; i < count1; i++)
+    result.push_back(0);
+  
+  return result;
+}
