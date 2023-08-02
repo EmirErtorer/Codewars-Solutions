@@ -1,0 +1,23 @@
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+
+using namespace std;
+
+string spinWords(const string &str)
+{
+  vector<string> words; string sub, result;
+  istringstream iss(str);
+  
+  while(iss >> sub)
+    words.push_back(sub);
+  
+  for(unsigned long j = 0; j < words.size(); j++){
+    if(words[j].size() >= 5) reverse(words[j].begin(), words[j].end());
+    result += words[j];
+    result += " ";
+  }
+  result.pop_back(); 
+  return result;
+}
