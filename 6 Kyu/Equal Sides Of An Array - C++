@@ -1,0 +1,17 @@
+#include <vector>
+#include <bits/stdc++.h>
+using namespace std;
+
+int find_even_index (const vector <int> numbers){
+  int sum = accumulate(numbers.begin(), numbers.end(), 0);
+  int count1 = 0, count2 = sum;
+  
+  for(unsigned long i = 0; i < numbers.size(); i++){
+    count2 = count2 - count1 - numbers[i];
+    if(count1 == count2) return i;
+    count1 += numbers[i];
+    count2 = sum;
+  }
+    
+  return -1;
+}
