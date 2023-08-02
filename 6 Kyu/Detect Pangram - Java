@@ -1,0 +1,28 @@
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
+
+
+public class PangramChecker {
+  public boolean check(String sentence){
+    
+    String alphabet = "abcdefghijklmnopqrstuvwxyz";
+    ArrayList<Character> chars = new ArrayList<Character>(26);
+    sentence = sentence.replaceAll("[^A-Za-z0-9]", "").toLowerCase(); // removing everything except the letters
+    
+    for (char c : alphabet.toCharArray()) {
+      chars.add(c);
+    }
+    
+    int count = 0;
+    for(int i = 0; i < sentence.length(); i++){
+      char ch = sentence.charAt(i);
+      if(chars.contains(ch)){
+        count++;
+        sentence = sentence.replaceAll(String.valueOf(ch), " "); // so that a repeated letter will not be counted again
+      }
+    }
+    return (count == 26);
+    
+  }
+}
